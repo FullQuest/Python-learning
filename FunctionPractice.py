@@ -246,7 +246,6 @@ def spy_game_old(input_array, lead_array=[0, 0, 7]):
 
 # That was fun!!! Huge improvement over older version
 def spy_game(input_array, lead_array=[0, 0, 7]):
-
     # Remove all numbers but 0,7(all unique lead_array nums) from input array and then convert both arrays to strings
     # And then check if input_array_string contains lead_array string
 
@@ -264,3 +263,38 @@ print(spy_game([1, 2, 4, 0, 0, 7, 5]))
 print(spy_game([1, 0, 2, 4, 0, 5, 7]))
 print(spy_game([1, 7, 2, 0, 4, 5, 0]))
 print('spy_game\n')
+
+
+# COUNT PRIMES: Write a function that returns the number of prime numbers that exist up to and including a given number
+# count_primes(100) --> 25
+# def count_primes(input_number):
+def is_prime(num_for_prime_check):
+    if num_for_prime_check < 2:
+        return False
+
+    for num in range(2, num_for_prime_check):
+        if num_for_prime_check % num == 0 and num != num_for_prime_check:
+            return False
+    return True
+
+
+def count_primes(num_for_count_primes):
+    prime_counter = 0
+    for num in range(num_for_count_primes + 1):
+        if is_prime(num):
+            prime_counter += 1
+    return prime_counter
+
+
+# print(is_prime(0))
+# print(is_prime(1))
+# print(is_prime(2))
+# print(is_prime(3))
+# print(is_prime(4))
+# print(is_prime(5))
+
+print(count_primes(2000))
+print(count_primes(100))
+print(count_primes(6))
+print(count_primes(2))
+print('count_primes\n')
