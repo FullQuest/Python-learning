@@ -269,9 +269,11 @@ print('spy_game\n')
 # count_primes(100) --> 25
 # def count_primes(input_number):
 def is_prime(num_for_prime_check):
+    # no primes under 2 so return False
     if num_for_prime_check < 2:
         return False
 
+    # Loop through all nums in input_num and check if it possible to (%==0) it by any number but 1 and num itself
     for num in range(2, num_for_prime_check):
         if num_for_prime_check % num == 0 and num != num_for_prime_check:
             return False
@@ -280,6 +282,8 @@ def is_prime(num_for_prime_check):
 
 def count_primes(num_for_count_primes):
     prime_counter = 0
+
+    # Loop through all nums in input_num and check if it's a prime. It it is then prime_counter += 1
     for num in range(num_for_count_primes + 1):
         if is_prime(num):
             prime_counter += 1
