@@ -302,3 +302,51 @@ print(count_primes(100))
 print(count_primes(6))
 print(count_primes(2))
 print('count_primes\n')
+
+
+# PRINT BIG: Write a function that takes in a single letter, and returns a 5x5 representation of that letter
+# print_big('a')
+#
+# out:   *
+#       * *
+#      *****
+#      *   *
+#      *   *
+# HINT: Consider making a dictionary of possible patterns,
+# and mapping the alphabet to specific 5-line combinations of patterns.
+# For purposes of this exercise, it's ok if your dictionary stops at "E".
+
+
+def print_big(input_str='no input', drawing_symbol='[', empty_symbol=' ', space='  '):
+    input_str = input_str.lower()
+    input_str = input_str.replace(' ', 'S')
+
+    # Dictionary with all letters
+    letters = {"S": "     \n     \n     \n     \n     ", 'a': "  *  \n * * \n*****\n*   *\n*   *",
+               'b': "**** \n*   *\n**** \n*   *\n*****", 'c': "**** \n*    \n*    \n*    \n**** ",
+               'd': "**** \n*   *\n*   *\n*   *\n**** ", 'e': "*****\n*    \n**** \n*    \n*****",
+               'f': "*****\n*    \n**** \n*    \n*    ", 'g': "*****\n*    \n*  **\n*   *\n*****",
+               'h': "*   *\n*   *\n*****\n*   *\n*   *", 'i': " *** \n  *  \n  *  \n  *  \n *** ",
+               'j': "    *\n    *\n    *\n*   *\n *** ", 'k': "*   *\n* *  \n**   \n* *  \n*   *",
+               'l': "*    \n*    \n*    \n*    \n*****", 'm': "*   *\n** **\n* * *\n*   *\n*   *",
+               'n': "*   *\n**  *\n* * *\n*  **\n*   *", 'o': " *** \n*   *\n*   *\n*   *\n *** ",
+               'p': "*****\n*   *\n*****\n*    \n*    ", 'q': "*****\n*   *\n*****\n    *\n    *",
+               'r': "**** \n*  * \n**** \n* *  \n*  * ", 's': "*****\n*    \n*****\n    *\n*****",
+               't': "*****\n  *  \n  *  \n  *  \n  *  ", 'u': "*   *\n*   *\n*   *\n*   *\n *** ",
+               'v': "*   *\n*   *\n*   *\n * * \n  *  ", 'w': "* * *\n* * *\n* * *\n* * *\n * * ",
+               'x': "*   *\n * * \n  *  \n * * \n*   *", 'y': "*   *\n * * \n  *  \n  *  \n  *  ",
+               'z': "*****\n   * \n  *  \n *   \n*****"}
+
+    output = ''
+    # Convert to output with dictionary
+    for row in range(5):
+        for letter in input_str:
+            output = output + letters[letter].split('\n')[row] + space
+        output = output + '\n'
+
+    return output.replace('*', drawing_symbol).replace(' ', empty_symbol)
+
+print(print_big('Hello world', 'H'))
+print(print_big('daydreamer', '@'))
+print('print_big\n')
+
