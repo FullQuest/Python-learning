@@ -82,13 +82,9 @@ print('old_macdonald\n')
 
 
 def master_yoda(sentence):
-    output_sentence = []
-    sentence = sentence.split(' ')
-    for word in sentence:
-        output_sentence.insert(0, word)
-
-    output_sentence = " ".join(output_sentence)
-    return output_sentence
+    wordlist = sentence.split(' ')
+    reversed_sentence = ' '.join(wordlist[::-1])
+    return reversed_sentence
 
 
 print(master_yoda('I am home'))
@@ -345,6 +341,7 @@ def print_big(input_str='no input', drawing_symbol='[', empty_symbol=' ', space=
         output = output + '\n'
 
     return output.replace('*', drawing_symbol).replace(' ', empty_symbol)
+
 
 print(print_big('Hello world', 'H'))
 print(print_big('daydreamer', '@'))
