@@ -121,6 +121,11 @@ print('almost_there\n\n---LEVEL 2 PROBLEMS---\n')
 
 
 def has_33(input_array):
+    str_input = ''.join([str(int) for int in input_array])
+    return '33' in str_input
+
+
+def has_33_old(input_array):
     cur_val = None
     for number in input_array:
         if number == 3 == cur_val:
