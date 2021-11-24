@@ -37,9 +37,10 @@ def get_key(time_to_sleep=3, msg=""):
 
 
 # show current screen
-def update_screen(screen):
+def update_screen(screen, current_player):
     # just for make an illusion of screen update
     print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+    print(f'Use numpad or "qweasdzxc" as an input. Current move is {current_player}')
     print(screen[0:3])
     print(screen[3:6])
     print(screen[6:9])
@@ -72,14 +73,14 @@ def has_three_in_row(screen, symbol):
     return False
 
 
-# possible input values. Static values
+# possible input values.
 num_input = ["7", "8", "9", "4", "5", "6", "1", "2", "3"]
 lowercase_input = ["q", "w", "e", "a", "s", "d", "z", "x", "c"]
 
 # Screen array
 screen = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
-# player's signs can be changed
+# player's signs that can be changed.
 players = {'1': 'X', '2': 'O'}
 
 # Dict to convert comfortable players input into it's index on screen
@@ -90,20 +91,18 @@ key_to_index = {"7": 0, "8": 1, "9": 2, "4": 3, "5": 4, "6": 5, "1": 6, "2": 7, 
 current_player = '1'
 possible_values = num_input + lowercase_input
 
-# show empty screen
-update_screen(screen)
-
 for i in range(9):
 
+    update_screen(screen, players[current_player])
     # get valid player input
     valimp = validate_input(players, screen, possible_values, current_player)
 
     # show it on screen
     screen = valimp[0]
-    update_screen(screen)
 
     # check for win
     if has_three_in_row(screen, players[current_player]):
+        update_screen(screen, players[current_player])
         print(f'Player {current_player} win!')
         break
 
