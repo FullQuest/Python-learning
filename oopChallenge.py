@@ -8,14 +8,14 @@ class Account():
         return f'Account owner:\t {self.owner_name}\nAccount balance: ${self.balance}'
 
     def deposit(self, deposit_sum):
-        self.balance = self.balance + deposit_sum
+        self.balance += deposit_sum
         print(f'Deposit ${deposit_sum} accepted')
 
     def withdraw(self, withdraw_sum):
         if withdraw_sum > self.balance:
             print(f'Withdraw ${withdraw_sum} denied. Withdraw sum is more than balance.\nUse lower value to withdraw')
         else:
-            self.balance = self.balance - withdraw_sum
+            self.balance -= withdraw_sum
             print(f'Withdrawal ${withdraw_sum} accepted')
 
 
